@@ -53,9 +53,11 @@ li:hover{color:#D8DE71}
 }
 
 #sub_main{
-	border:solid gray;
+	position:relative;
+	/*border:solid gray;*/
 	margin:20px auto;
-	width:600px;
+	width:800px;
+	margin:20px auto;
 	height:600px;
 }
 
@@ -64,11 +66,25 @@ li:hover{color:#D8DE71}
 	margin:auto;
 	width:100%}
 
+
 #nav{
+
 	position:absolute;
 	padding-top:40px;
 	width:200px;
 	z-index:100;
+}
+
+
+#playpage{
+	position:absolute;
+	padding:20px;
+	margin:20px auto;
+	width:410px;
+	right:0; 
+	top: 0;
+	text-align:center;
+	
 }
 
 .content{

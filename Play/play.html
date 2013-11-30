@@ -13,6 +13,107 @@
     <a href="../index.html">Home</a>&nbsp | &nbsp<a href="Hands/hands.html">Hands</a>&nbsp | &nbsp<a href="Eyes/eyes.html">Eyes</a>&nbsp |&nbsp <a href="Contact/contact.html">Contact</a>
   </div> <!--title-->
 	<div id="sub_main">
+			<canvas id="layer1" width="348" height="600" style="position: absolute; left: 0; top: 0; z-index: 0;"></canvas>
+			<canvas id="layer2" width="348" height="600" style="position: absolute; left: 0; top: 0; z-index: 1;"></canvas>
+		<script>
+		var canvas0 = document.getElementById("layer1");
+var context0 = canvas0.getContext('2d');
+var canvas = document.getElementById("layer2");
+var context = canvas.getContext('2d');
+eric = new Image();
+eric.onload = loadingComplete;
+eric.src = "eric.png";
+//
+var xPos = new Array();
+xPos[1]=200;//starting x1
+xPos[2]=400;
+xPos[3]=100;
+xPos[4]=0;
+var yPos = new Array();
+yPos[1]= 200;
+yPos[2]=600;
+yPos[3]=400;
+yPos[4]=0;
+var dx = new Array();
+dx[1]=.1;
+dx[2]=-.1;
+dx[3]=.1
+dx[4]=.1;
+var dy = new Array();
+dy[1]=.1;
+dy[2]=-.1;
+dy[3]=-.1
+dy[4]=.1;
+
+
+
+function loadingComplete() {
+    context0.drawImage(eric, 0, 0);
+    setInterval(loop, 5);
+}
+
+function loop() {
+    var coords = updateCoords(1);
+    xPos[1] = coords.x;
+    yPos[1] = coords.y;
+    context.globalAlpha = 0.11;
+    context.clearRect(0, 0, canvas.width, canvas.height);
+    context.beginPath();
+    context.arc(xPos[1], yPos[1], 300, 0, 2 * Math.PI, false);
+    context.closePath();
+    context.fillStyle = 'yellow';
+    context.fill();
+    //circle 2
+    var coords = updateCoords(2);
+    xPos[2] = coords.x;
+    yPos[2] = coords.y;
+    context.beginPath();
+    context.arc(xPos[2], yPos[2], 300, 0, 2 * Math.PI, false);
+    context.closePath();
+    context.fillStyle = 'black';
+    context.fill();
+    //circle 3
+    var coords = updateCoords(3);
+    xPos[3] = coords.x;
+    yPos[3] = coords.y;
+    context.beginPath();
+    context.arc(xPos[3], yPos[3], 300, 0, 2 * Math.PI, false);
+    context.closePath();
+    context.fillStyle = 'magenta';
+    context.fill();    
+      //circle 4
+    var coords = updateCoords(4);
+    xPos[4] = coords.x;
+    yPos[4] = coords.y;
+    context.beginPath();
+    context.arc(xPos[4], yPos[4], 300, 0, 2 * Math.PI, false);
+    context.closePath();
+    context.fillStyle = 'cyan';
+    context.fill();    
+}
+
+function updateCoords(index) {
+    var xCoord=xPos[index];
+    var yCoord=yPos[index];
+    if (xCoord < 0 || xCoord > canvas.width) dx[index] = -dx[index];
+    xCoord = xCoord + dx[index];
+    if (yCoord < 0 || yCoord > canvas.height) dy[index] = -dy[index];
+    yCoord = yCoord + dy[index];
+    return {
+        x: xCoord,
+        y: yCoord
+    };
+}
+		</script>
+		<div class ="title" id="playpage">
+			<p>Hi I'm Eric.</p>
+			<p>I pursue truth, beauty, and meaning. I like to work at the intersection of art and science. It is my aim to create things which challenge people's reality. </p>
+			<p>I am a lifelong learner and a true neophile. I seek to enjoy the profound uniqueness of the people and things around me.</p>
+			<p>I cannot help but to reimagine the world. I like to make things which have never been made before -- to bring life to daydreams. </p>
+			<p>This is my passion. Ultimately I hope to help create solutions to pressing problems. </p>
+			<p>"There is no way to peace. Peace is the way"</p>
+		</div> <!-- content -->
+	</div><!--sub_main-->
 	</div><!--main-->
 </div> <!--page-->
 </body>
